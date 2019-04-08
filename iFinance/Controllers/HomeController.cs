@@ -26,5 +26,15 @@ namespace iFinance.Controllers
 
             return View();
         }
+
+        public ActionResult MonthlyExpenses()
+        {
+            return View();
+        }
+
+        public ActionResult MonthlyIncomes()
+        {
+            return View();
+        }
     }
 }
