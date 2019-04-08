@@ -3,11 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using iFinance.Models;
 
 namespace iFinance.Controllers
 {
     public class HomeController : Controller
     {
+        //Connection to DB
+
+            private DbModel db = new DbModel();
+
+
+
         public ActionResult Index()
         {
             return View();
@@ -29,11 +36,22 @@ namespace iFinance.Controllers
 
         public ActionResult MonthlyExpenses()
         {
-            return View();
+
+            var expenses = db.MonthlyExpenses.ToList();
+
+            
+
+            return View(expenses);
         }
 
         public ActionResult MonthlyIncomes()
         {
+            return View();
+        }
+
+        public ActionResult ViewCharge( string ChargeName)
+        {
+            ViewBag.ChargeName = ChargeName;
             return View();
         }
     }

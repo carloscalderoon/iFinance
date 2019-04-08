@@ -178,11 +178,13 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MonthlyExpensController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\DbModel.cs" />
+    <Compile Include="Models\Expense.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MonthlyExpens.cs" />
@@ -249,6 +251,12 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\MonthlyExpenses.cshtml" />
     <Content Include="Views\Home\MonthlyIncomes.cshtml" />
+    <Content Include="Views\Home\ViewCharge.cshtml" />
+    <Content Include="Views\MonthlyExpens\Create.cshtml" />
+    <Content Include="Views\MonthlyExpens\Delete.cshtml" />
+    <Content Include="Views\MonthlyExpens\Details.cshtml" />
+    <Content Include="Views\MonthlyExpens\Edit.cshtml" />
+    <Content Include="Views\MonthlyExpens\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
