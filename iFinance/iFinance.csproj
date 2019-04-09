@@ -179,6 +179,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MonthlyExpensController.cs" />
+    <Compile Include="Controllers\MonthlyIncomesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -257,6 +258,11 @@
     <Content Include="Views\MonthlyExpens\Details.cshtml" />
     <Content Include="Views\MonthlyExpens\Edit.cshtml" />
     <Content Include="Views\MonthlyExpens\Index.cshtml" />
+    <Content Include="Views\MonthlyIncomes\Create.cshtml" />
+    <Content Include="Views\MonthlyIncomes\Delete.cshtml" />
+    <Content Include="Views\MonthlyIncomes\Details.cshtml" />
+    <Content Include="Views\MonthlyIncomes\Edit.cshtml" />
+    <Content Include="Views\MonthlyIncomes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

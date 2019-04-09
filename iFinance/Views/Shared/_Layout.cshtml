@@ -21,9 +21,8 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Monthly Expenses", "MonthlyExpenses", "Home")</li>
-                    <li>@Html.ActionLink("Monthly Incomes", "MonthlyIncomes", "Home")</li>
+                    <li>@Html.ActionLink("Monthly Expenses", "Index", "MonthlyExpens")</li>
+                    <li>@Html.ActionLink("Monthly Incomes", "Index", "MonthlyIncomes")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
 
@@ -47,5 +46,7 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+
+    <script src="~/Scripts/sorttable.js"></script>
 </body>
 </html>
