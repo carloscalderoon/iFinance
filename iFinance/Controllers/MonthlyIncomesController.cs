@@ -12,7 +12,20 @@ namespace iFinance.Controllers
 {
     public class MonthlyIncomesController : Controller
     {
-        private DbModel db = new DbModel();
+        //private DbModel db = new DbModel();
+        IMockMonthlyIncomes db;
+
+        //Constructors
+        //Default Constructor
+        public MonthlyIncomesController()
+        {
+            this.db = new IDataMonthlyIncomes();
+        }
+
+        public MonthlyIncomesController(IMockMonthlyIncomes mockDb)
+        {
+            this.db = mockDb;
+        }
 
         // GET: MonthlyIncomes
         public ActionResult Index()
@@ -27,7 +40,8 @@ namespace iFinance.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            MonthlyIncome monthlyIncome = db.MonthlyIncomes.Find(id);
+            //MonthlyIncome monthlyIncome = db.MonthlyIncomes.Find(id);
+            MonthlyIncome monthlyIncome = db.MonthlyIncomes.SingleOrDefault(c => c.IncomeID == id);
             if (monthlyIncome == null)
             {
                 return HttpNotFound();
@@ -50,8 +64,9 @@ namespace iFinance.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.MonthlyIncomes.Add(monthlyIncome);
-                db.SaveChanges();
+                //db.MonthlyIncomes.Add(monthlyIncome);
+                //db.SaveChanges();
+                db.Save(monthlyIncome);
                 return RedirectToAction("Index");
             }
 
@@ -65,7 +80,8 @@ namespace iFinance.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            MonthlyIncome monthlyIncome = db.MonthlyIncomes.Find(id);
+            //MonthlyIncome monthlyIncome = db.MonthlyIncomes.Find(id);
+            MonthlyIncome monthlyIncome = db.MonthlyIncomes.SingleOrDefault(c => c.IncomeID == id);
             if (monthlyIncome == null)
             {
                 return HttpNotFound();
@@ -82,8 +98,9 @@ namespace iFinance.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(monthlyIncome).State = EntityState.Modified;
-                db.SaveChanges();
+                //db.Entry(monthlyIncome).State = EntityState.Modified;
+                //db.SaveChanges();
+                db.Save(monthlyIncome);
                 return RedirectToAction("Index");
             }
             return View(monthlyIncome);
@@ -96,7 +113,8 @@ namespace iFinance.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            MonthlyIncome monthlyIncome = db.MonthlyIncomes.Find(id);
+            //MonthlyIncome monthlyIncome = db.MonthlyIncomes.Find(id);
+            MonthlyIncome monthlyIncome = db.MonthlyIncomes.SingleOrDefault(c => c.IncomeID == id);
             if (monthlyIncome == null)
             {
                 return HttpNotFound();
@@ -109,9 +127,11 @@ namespace iFinance.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            MonthlyIncome monthlyIncome = db.MonthlyIncomes.Find(id);
-            db.MonthlyIncomes.Remove(monthlyIncome);
-            db.SaveChanges();
+            //MonthlyIncome monthlyIncome = db.MonthlyIncomes.Find(id);
+            MonthlyIncome monthlyIncome = db.MonthlyIncomes.SingleOrDefault(c => c.IncomeID == id);
+            //db.MonthlyIncomes.Remove(monthlyIncome);
+            //db.SaveChanges();
+            db.Delete(monthlyIncome);
             return RedirectToAction("Index");
         }
 

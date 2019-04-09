@@ -4,42 +4,82 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - iFinance</title>
-    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/css/agency.css")
     @Scripts.Render("~/bundles/modernizr")
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Bootstrap core CSS -->
+    <link href="~/Content/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="~/Content/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="~/Content/css/agency.min.css" rel="stylesheet">
 
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top "id="mainNavFixed">
         <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("iFinance", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    @if (Request.IsAuthenticated)
-                    {
+            <a class="navbar-brand" href="/">iFinance</a>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav text-uppercase ml-auto">
+                    <li class="nav-item"><div class="nav-link"><a href="/MonthlyExpens">Monthly Expenses</a></div></li>
+                    <li class="nav-item"><div class="nav-link"><a href="/MonthlyIncomes">Monthly Incomes</a></div></li>
 
-                    }
-                    <li>@Html.ActionLink("Monthly Expenses", "Index", "MonthlyExpens")</li>
-                    <li>@Html.ActionLink("Monthly Incomes", "Index", "MonthlyIncomes")</li>
                 </ul>
-                @Html.Partial("_LoginPartial")
+                <ul class="navbar-nav text-uppercase ml-auto">
+                    <li class="nav-item">
+                        @Html.Partial("_LoginPartial")
+                    </li>
+                </ul>
+
             </div>
         </div>
-    </div>
-    <div class="container body-content">
+    </nav>
+    <div class="">
         @RenderBody()
         <hr />
         <footer>
-            <div class="row">
-                <p class="col-md-4 text-center">&copy; @DateTime.Now.Year</p>
-                <p class="col-md-4 text-center">Carlos Calderon Dominguez</p>
-                <p class="col-md-4 text-center">200416891</p>
+            <div class="container">
+                <div class="row">
+                    <p class="col-md-4 copyright">&copy; @DateTime.Now.Year</p>
+                    <div class="col-md-4">
+                        <ul class="list-inline social-buttons">
+                            <li class="list-inline-item">
+                                <a href="https://twitter.com/calderooncarlos">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="https://github.com/carloscalderoon">
+                                    <i class="fab fa-github-square"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="https://www.linkedin.com/in/carlooscalderonn">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <ul class="list-inline quicklinks">
+                            <li class="list-inline-item">
+                                <p>Carlos Calderon Dominguez</p>
+                            </li>
+                            <li class="list-inline-item">
+                                <p>200416891</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </footer>
     </div>
@@ -47,6 +87,20 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="~/Content/vendor/jquery/jquery.min.js"></script>
+    <script src="~/Content/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="~/Content/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Contact form JavaScript -->
+    <script src="~/Content/js/jqBootstrapValidation.js"></script>
+    <script src="~/Content/js/contact_me.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="~/Content/js/agency.min.js"></script>
 
     <script src="~/Scripts/sorttable.js"></script>
 </body>

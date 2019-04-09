@@ -39,6 +39,19 @@ namespace iFinance.Tests.Controllers
         }
 
         [TestMethod]
+        public void AboutLoadsView()
+        {
+            //arrange
+            HomeController controller = new HomeController();
+
+            //act
+            ViewResult result = controller.About() as ViewResult;
+
+            //assert
+            Assert.AreEqual("About", result.ViewName);
+        }
+
+        [TestMethod]
         public void Contact()
         {
             // Arrange

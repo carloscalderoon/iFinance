@@ -4,48 +4,50 @@
     ViewBag.Title = "Monthly Incomes";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div class="container" style="padding-top: 5%">
+    <h2>@ViewBag.Title</h2>
 
-<h2>@ViewBag.Title</h2>
+    @if (Request.IsAuthenticated)
+    {
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+    }
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Origin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Amount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th></th>
+        </tr>
 
-@if (Request.IsAuthenticated)
-{
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-}
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Origin)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Amount)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Date)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Origin)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Amount)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Date)
-        </td>
-        @if (Request.IsAuthenticated)
+        @foreach (var item in Model)
         {
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.IncomeID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.IncomeID })
-            </td>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Origin)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Amount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                @if (Request.IsAuthenticated)
+                {
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.IncomeID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.IncomeID })
+                    </td>
+                }
+            </tr>
         }
-    </tr>
-}
 
-</table>
+    </table>
+</div>
