@@ -7,9 +7,12 @@
 
 <h2>@ViewBag.Title</h2>
 
+@if (Request.IsAuthenticated)
+{
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+}
 <table class="table">
     <tr>
         <th>
@@ -35,10 +38,13 @@
         <td>
             @Html.DisplayFor(modelItem => item.Date)
         </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.IncomeID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.IncomeID })
-        </td>
+        @if (Request.IsAuthenticated)
+        {
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.IncomeID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.IncomeID })
+            </td>
+        }
     </tr>
 }
 

@@ -17,6 +17,7 @@ namespace iFinance.Models
         public string Name { get; set; }
 
         [Column(TypeName = "money")]
+        [DisplayFormat(DataFormatString = "{0:c}")]
         public decimal Amount { get; set; }
 
         [Column(TypeName = "date")]
