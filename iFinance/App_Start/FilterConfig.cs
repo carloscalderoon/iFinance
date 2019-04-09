@@ -9,7 +9,10 @@ namespace iFinance
         {
             filters.Add(new HandleErrorAttribute());
             //Force all request to use ssl
-            filters.Add(new RequireHttpsAttribute());
+
+            //Works in Azure but locally it doesn't connect
+
+            //filters.Add(new RequireHttpsAttribute());
         }
     }
 }
